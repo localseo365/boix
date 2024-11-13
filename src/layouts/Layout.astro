@@ -1,0 +1,155 @@
+---
+import '@fontsource-variable/inter';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import WhatsAppButton from '../components/WhatsAppButton.astro';
+import CookieBanner from '../components/CookieBanner.astro';
+
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="canonical" href={canonicalURL} />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- Primary Meta Tags -->
+    <title>{title}</title>
+    <meta name="title" content={title} />
+    <meta name="description" content={description} />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:locale" content="es_ES" />
+    <meta property="og:site_name" content="Boix Vaciados" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={canonicalURL} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+
+    <!-- Additional SEO Meta Tags -->
+    <meta name="robots" content="index, follow" />
+    <meta name="googlebot" content="index, follow" />
+    <meta name="keywords" content="vaciado de pisos, vaciado de locales, Sant Boi de Llobregat, limpieza post vaciado, retirada de muebles, gestión de residuos" />
+    <meta name="author" content="Boix Vaciados" />
+    <meta name="geo.region" content="ES-CT" />
+    <meta name="geo.placename" content="Sant Boi de Llobregat" />
+
+    <!-- Local Business Schema -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "@id": "https://boix.vercel.app",
+        "name": "Boix Vaciados",
+        "image": "https://boix.vercel.app/images/logo.svg",
+        "description": "Servicio profesional de vaciado de pisos y locales en Sant Boi de Llobregat. Ofrecemos servicios de vaciado, limpieza y gestión de residuos con más de 15 años de experiencia.",
+        "url": "https://boix.vercel.app",
+        "telephone": "+34690220944",
+        "email": "info@boix.vercel.app",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Carrer Ciutat Cooperativa, 83",
+          "addressLocality": "Sant Boi de Llobregat",
+          "postalCode": "08830",
+          "addressRegion": "Barcelona",
+          "addressCountry": "ES"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 41.3462,
+          "longitude": 2.0374
+        },
+        "areaServed": {
+          "@type": "GeoCircle",
+          "geoMidpoint": {
+            "@type": "GeoCoordinates",
+            "latitude": 41.3462,
+            "longitude": 2.0374
+          },
+          "geoRadius": "30000"
+        },
+        "openingHoursSpecification": {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday"
+          ],
+          "opens": "08:00",
+          "closes": "20:00"
+        },
+        "priceRange": "€€",
+        "sameAs": [
+          "https://www.facebook.com/boixvaciados",
+          "https://www.instagram.com/boixvaciados"
+        ],
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Servicios de Vaciado",
+          "itemListElement": [
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Vaciado de Pisos",
+                "description": "Servicio profesional de vaciado de pisos en Sant Boi de Llobregat"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Vaciado de Locales Comerciales",
+                "description": "Vaciado integral de locales comerciales y oficinas"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Limpieza Post-Vaciado",
+                "description": "Servicio de limpieza y desinfección después del vaciado"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Retirada de Muebles",
+                "description": "Servicio de retirada y gestión de muebles y enseres"
+              }
+            }
+          ]
+        }
+      }
+    </script>
+  </head>
+  <body class="min-h-screen flex flex-col">
+    <Header />
+    <main class="flex-grow">
+      <slot />
+    </main>
+    <WhatsAppButton />
+    <Footer />
+    <CookieBanner />
+  </body>
+</html>

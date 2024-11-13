@@ -1,0 +1,55 @@
+---
+const services = [
+  {
+    title: "Vaciado de pisos",
+    description: "Expertos en vaciado de pisos de todos los tamaños. Retiramos muebles, electrodomésticos y objetos con un enfoque sostenible, dejando el espacio listo para su nuevo uso.",
+    icon: "🏠",
+    link: "/servicios/vaciado-pisos"
+  },
+  {
+    title: "Vaciado de locales",
+    description: "Soluciones profesionales para el vaciado de locales comerciales. Gestionamos la retirada de mobiliario y equipos cumpliendo con todas las normativas locales.",
+    icon: "🏢",
+    link: "/servicios/vaciado-locales"
+  },
+  {
+    title: "Limpieza post-vaciado",
+    description: "Servicio profesional de limpieza y desinfección tras el vaciado. Garantizamos espacios en óptimas condiciones, eliminando suciedad y bacterias.",
+    icon: "✨",
+    link: "/servicios/limpieza"
+  },
+  {
+    title: "Retirada de muebles",
+    description: "Servicio completo de retirada de muebles y enseres. Nos encargamos de la recogida y reciclaje responsable de muebles, electrodomésticos y objetos voluminosos.",
+    icon: "🪑",
+    link: "/servicios/retirada-muebles"
+  }
+];
+---
+
+<section id="servicios" class="py-16 bg-white">
+  <div class="container mx-auto px-4">
+    <div class="max-w-3xl mx-auto text-center mb-12">
+      <h2 class="text-3xl font-bold mb-4">Servicios de vaciado de pisos y locales en Sant Boi</h2>
+      <p class="text-gray-600">
+        En Boix, ofrecemos una gama completa de servicios de vaciado de inmuebles y locales comerciales en Sant Boi de Llobregat. Nuestro equipo está especializado en gestionar el retirada de muebles, electrodomésticos, escombros, y objetos de gran tamaño, garantizando un espacio limpio y libre de obstáculos.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      {services.map(service => (
+        <a href={service.link} class="group">
+          <div class="bg-gray-50 p-6 rounded-lg hover:shadow-lg transition duration-300">
+            <div class="text-4xl mb-4">{service.icon}</div>
+            <h3 class="text-xl font-semibold mb-3 group-hover:text-primary transition">
+              {service.title}
+            </h3>
+            <p class="text-gray-600">
+              {service.description}
+            </p>
+          </div>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>

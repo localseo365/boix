@@ -1,0 +1,23 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import Services from '../components/Services.astro';
+import ValueProposition from '../components/ValueProposition.astro';
+import Process from '../components/Process.astro';
+import FAQ from '../components/FAQ.astro';
+import Testimonials from '../components/Testimonials.astro';
+import ContactForm from '../components/ContactForm.astro';
+
+const title = "Vaciado de Pisos y Locales en Sant Boi | Boix Vaciados";
+const description = "Servicio profesional de vaciado de pisos y locales en Sant Boi de Llobregat. Presupuesto sin compromiso, servicio rápido y gestión ecológica de residuos.";
+---
+
+<Layout title={title} description={description}>
+  <Hero />
+  <Services />
+  <ValueProposition />
+  <Process />
+  <FAQ />
+  <Testimonials />
+  <ContactForm />
+</Layout>

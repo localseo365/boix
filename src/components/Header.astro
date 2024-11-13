@@ -1,0 +1,71 @@
+---
+import Logo from './Logo.astro';
+---
+
+<header class="bg-white shadow-md fixed w-full top-0 z-50">
+  <div class="container mx-auto px-4 py-3">
+    <nav class="flex items-center justify-between">
+      <a href="/" class="flex items-center" aria-label="Boix Vaciados - Inicio">
+        <Logo />
+      </a>
+
+      <!-- Mobile Menu Button -->
+      <button id="menuBtn" class="lg:hidden" aria-label="Menú">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-16 6h16" />
+        </svg>
+      </button>
+
+      <!-- Desktop Navigation -->
+      <div class="hidden lg:flex items-center gap-8">
+        <a href="/#inicio" class="text-gray-700 hover:text-primary">Inicio</a>
+        <a href="/#servicios" class="text-gray-700 hover:text-primary">Servicios</a>
+        <a href="/#nosotros" class="text-gray-700 hover:text-primary">Sobre Nosotros</a>
+        <a href="/#faq" class="text-gray-700 hover:text-primary">FAQ</a>
+        <a href="/#contacto" class="text-gray-700 hover:text-primary">Contacto</a>
+        <a href="https://wa.link/888ktj" class="bg-secondary text-white px-6 py-2 rounded-full hover:bg-opacity-90 transition">
+          Presupuesto Gratis
+        </a>
+      </div>
+
+      <!-- Mobile Navigation -->
+      <div id="mobileMenu" class="hidden fixed inset-0 bg-white z-50 lg:hidden">
+        <div class="container mx-auto px-4 py-6">
+          <div class="flex justify-end mb-8">
+            <button id="closeMenu" aria-label="Cerrar menú">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
+          <div class="flex flex-col gap-6 text-center">
+            <a href="/#inicio" class="text-xl text-gray-700">Inicio</a>
+            <a href="/#servicios" class="text-xl text-gray-700">Servicios</a>
+            <a href="/#nosotros" class="text-xl text-gray-700">Sobre Nosotros</a>
+            <a href="/#faq" class="text-xl text-gray-700">FAQ</a>
+            <a href="/#contacto" class="text-xl text-gray-700">Contacto</a>
+            <a href="https://wa.link/888ktj" class="bg-secondary text-white px-6 py-3 rounded-full text-xl">
+              Presupuesto Gratis
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const menuBtn = document.getElementById('menuBtn');
+  const closeMenu = document.getElementById('closeMenu');
+  const mobileMenu = document.getElementById('mobileMenu');
+
+  menuBtn?.addEventListener('click', () => {
+    mobileMenu?.classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+  });
+
+  closeMenu?.addEventListener('click', () => {
+    mobileMenu?.classList.add('hidden');
+    document.body.style.overflow = 'auto';
+  });
+</script>

@@ -1,0 +1,63 @@
+---
+const values = [
+  {
+    title: "Experiencia y profesionalismo",
+    description: "Con años de experiencia en el sector, sabemos cómo gestionar desde vaciados de viviendas hasta locales comerciales de manera eficiente y cuidadosa.",
+    icon: "⭐"
+  },
+  {
+    title: "Presupuestos sin compromiso",
+    description: "Evaluamos cada caso para proporcionarte una cotización justa y transparente que incluya todos los detalles del servicio.",
+    icon: "📋"
+  },
+  {
+    title: "Servicio rápido y eficaz",
+    description: "Ofrecemos un servicio rápido y eficaz en Sant Boi de Llobregat, asegurando que el espacio esté listo para su siguiente uso lo antes posible.",
+    icon: "⚡"
+  },
+  {
+    title: "Gestión eco-responsable",
+    description: "Nos encargamos de separar y reciclar adecuadamente todos los materiales, asegurando que el vaciado se realice de forma eco-responsable.",
+    icon: "♻️"
+  },
+  {
+    title: "Atención personalizada",
+    description: "Nuestro equipo está disponible para responder cualquier pregunta y asesorarte en cada etapa del vaciado, garantizando tu satisfacción.",
+    icon: "👥"
+  }
+];
+---
+
+<section id="nosotros" class="py-16 bg-gray-50">
+  <div class="container mx-auto px-4">
+    <div class="max-w-3xl mx-auto text-center mb-12">
+      <h2 class="text-3xl font-bold mb-4">Beneficios de elegir Boix para el vaciado de pisos y locales en Sant Boi de Llobregat</h2>
+      <p class="text-gray-600">
+        En Boix, entendemos que el vaciado de un espacio es una tarea que requiere experiencia, profesionalismo y respeto. Nuestro equipo se ha especializado en el vaciado de pisos, locales comerciales y oficinas en Sant Boi de Llobregat y sus alrededores.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {values.map(value => (
+        <div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition">
+          <div class="text-4xl mb-4">{value.icon}</div>
+          <h3 class="text-xl font-semibold mb-2 text-primary">
+            {value.title}
+          </h3>
+          <p class="text-gray-600">
+            {value.description}
+          </p>
+        </div>
+      ))}
+    </div>
+
+    <div class="text-center mt-12">
+      <a
+        href="https://wa.link/888ktj"
+        class="inline-block bg-secondary text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-opacity-90 transition"
+      >
+        Contacta con nosotros
+      </a>
+    </div>
+  </div>
+</section>

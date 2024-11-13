@@ -1,0 +1,70 @@
+---
+const steps = [
+  {
+    number: "01",
+    title: "Contacto inicial",
+    description: "Contacta con nosotros por teléfono o formulario web para explicarnos tus necesidades.",
+    icon: "📞"
+  },
+  {
+    number: "02",
+    title: "Evaluación y presupuesto",
+    description: "Valoramos el trabajo y te enviamos un presupuesto detallado en menos de 24 horas.",
+    icon: "📋"
+  },
+  {
+    number: "03",
+    title: "Ejecución del vaciado",
+    description: "Nuestro equipo realiza el vaciado de forma profesional y eficiente.",
+    icon: "🚛"
+  },
+  {
+    number: "04",
+    title: "Limpieza final",
+    description: "Realizamos una limpieza completa dejando el espacio listo para su nuevo uso.",
+    icon: "✨"
+  }
+];
+---
+
+<section class="py-16 bg-white">
+  <div class="container mx-auto px-4">
+    <div class="max-w-3xl mx-auto text-center mb-12">
+      <h2 class="text-3xl font-bold mb-4">Proceso de trabajo</h2>
+      <p class="text-gray-600">
+        Un proceso simple y eficiente para garantizar los mejores resultados
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      {steps.map(step => (
+        <div class="relative">
+          <div class="bg-gray-50 p-6 rounded-lg">
+            <div class="absolute -top-4 -left-4 w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center text-sm font-bold">
+              {step.number}
+            </div>
+            <div class="text-4xl mb-4">{step.icon}</div>
+            <h3 class="text-xl font-semibold mb-2 text-primary">
+              {step.title}
+            </h3>
+            <p class="text-gray-600">
+              {step.description}
+            </p>
+          </div>
+          {step.number !== "04" && (
+            <div class="hidden lg:block absolute top-1/2 -right-4 w-8 h-0.5 bg-gray-300"></div>
+          )}
+        </div>
+      ))}
+    </div>
+
+    <div class="text-center mt-12">
+      <a
+        href="https://wa.link/888ktj"
+        class="inline-block bg-primary text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-opacity-90 transition"
+      >
+        Empezar ahora
+      </a>
+    </div>
+  </div>
+</section>

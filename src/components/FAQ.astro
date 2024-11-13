@@ -1,0 +1,93 @@
+---
+const faqs = [
+  {
+    question: "¿Cuánto cuesta el servicio de vaciado de pisos en Sant Boi de Llobregat?",
+    answer: "El coste del servicio de vaciado de pisos en Sant Boi de Llobregat depende de varios factores, como el tamaño del espacio, la cantidad de muebles y enseres a retirar, y el tipo de desechos a gestionar. En Boix, ofrecemos presupuestos personalizados y competitivos, adaptados a las necesidades específicas de cada cliente. Para obtener un precio exacto, te invitamos a solicitar un presupuesto gratuito y sin compromiso."
+  },
+  {
+    question: "¿Cuánto tiempo se tarda en vaciar un piso o local comercial en Sant Boi?",
+    answer: "El tiempo necesario para vaciar un piso o local comercial varía en función del volumen de objetos a retirar y del estado del lugar. En Boix, realizamos una planificación previa para garantizar una ejecución rápida y eficiente, y nos adaptamos al calendario que mejor se ajuste a nuestros clientes. Generalmente, un vaciado de piso estándar puede completarse en unas pocas horas."
+  },
+  {
+    question: "¿Cómo gestiona Boix los residuos y enseres retirados?",
+    answer: "En Boix, nos comprometemos con el medio ambiente y gestionamos los residuos de manera responsable. Los enseres y materiales retirados de los pisos o locales en Sant Boi de Llobregat son clasificados y llevados a centros de reciclaje autorizados o donados, cuando es posible. Seguimos las normativas vigentes de gestión de residuos para minimizar el impacto ambiental."
+  },
+  {
+    question: "¿Es posible vaciar un piso con objetos de valor o documentos personales?",
+    answer: "Sí, en Boix respetamos y manejamos con cuidado cualquier objeto de valor o documentos personales que se encuentren durante el proceso de vaciado. Antes de comenzar, recomendamos a nuestros clientes identificar y retirar cualquier objeto de valor que quieran conservar. Si encontramos documentos o pertenencias personales durante el vaciado, informamos de inmediato para su recuperación."
+  },
+  {
+    question: "¿Qué incluye el servicio de vaciado de pisos y locales de Boix?",
+    answer: "Nuestro servicio de vaciado incluye la retirada de muebles, enseres, electrodomésticos y otros objetos del espacio. Además, si lo solicitas, ofrecemos limpieza y desinfección post-vaciado para dejar el lugar en óptimas condiciones. En Boix, nos adaptamos a tus necesidades y podemos incluir servicios adicionales como la gestión de residuos especiales o la preparación del espacio para su siguiente uso."
+  }
+];
+---
+
+<section id="faq" class="py-16 bg-gray-50">
+  <div class="container mx-auto px-4">
+    <div class="max-w-3xl mx-auto text-center mb-12">
+      <h2 class="text-3xl font-bold mb-4">Preguntas frecuentes (FAQ)</h2>
+      <p class="text-gray-600">
+        Resolvemos tus dudas sobre nuestros servicios de vaciado
+      </p>
+    </div>
+
+    <div class="max-w-3xl mx-auto">
+      <div class="space-y-6">
+        {faqs.map((faq, index) => (
+          <div class="bg-white rounded-lg shadow-sm">
+            <button
+              class="w-full text-left px-6 py-4 focus:outline-none"
+              id={`faq-btn-${index}`}
+              aria-expanded="false"
+              aria-controls={`faq-content-${index}`}
+            >
+              <div class="flex justify-between items-center">
+                <h3 class="font-semibold text-lg pr-8">{faq.question}</h3>
+                <svg
+                  class="w-6 h-6 transform transition-transform duration-200"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </div>
+            </button>
+            <div
+              id={`faq-content-${index}`}
+              class="hidden px-6 pb-4"
+              role="region"
+              aria-labelledby={`faq-btn-${index}`}
+            >
+              <p class="text-gray-600">{faq.answer}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.querySelectorAll('[id^="faq-btn-"]').forEach((button) => {
+    button.addEventListener('click', () => {
+      const content = document.getElementById(
+        button.getAttribute('aria-controls') || ''
+      );
+      const icon = button.querySelector('svg');
+      
+      if (content && icon) {
+        const isExpanded = button.getAttribute('aria-expanded') === 'true';
+        button.setAttribute('aria-expanded', (!isExpanded).toString());
+        content.classList.toggle('hidden');
+        icon.style.transform = isExpanded ? 'rotate(0deg)' : 'rotate(180deg)';
+      }
+    });
+  });
+</script>

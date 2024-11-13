@@ -1,0 +1,63 @@
+---
+import { createSignal } from 'solid-js';
+---
+
+<div id="cookie-banner" class="fixed bottom-0 left-0 right-0 bg-gray-900 text-white p-4 z-50 transform translate-y-full transition-transform duration-300">
+  <div class="container mx-auto px-4">
+    <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+      <div class="text-sm">
+        Utilizamos cookies propias y de terceros para mejorar nuestros servicios y mostrarle publicidad relacionada con sus preferencias mediante el análisis de sus hábitos de navegación. 
+        <a href="/cookies" class="underline hover:text-gray-300">Más información</a>
+      </div>
+      <div class="flex gap-4">
+        <button
+          id="accept-cookies"
+          class="bg-secondary text-white px-6 py-2 rounded-full text-sm hover:bg-opacity-90 transition whitespace-nowrap"
+        >
+          Aceptar
+        </button>
+        <button
+          id="reject-cookies"
+          class="bg-gray-700 text-white px-6 py-2 rounded-full text-sm hover:bg-opacity-90 transition whitespace-nowrap"
+        >
+          Rechazar
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const cookieBanner = document.getElementById('cookie-banner');
+  const acceptButton = document.getElementById('accept-cookies');
+  const rejectButton = document.getElementById('reject-cookies');
+
+  // Check if user has already made a choice
+  const cookieChoice = localStorage.getItem('cookieChoice');
+
+  if (!cookieChoice && cookieBanner) {
+    // Show banner if no choice has been made
+    setTimeout(() => {
+      cookieBanner.classList.remove('translate-y-full');
+    }, 1000);
+  }
+
+  acceptButton?.addEventListener('click', () => {
+    localStorage.setItem('cookieChoice', 'accepted');
+    hideBanner();
+  });
+
+  rejectButton?.addEventListener('click', () => {
+    localStorage.setItem('cookieChoice', 'rejected');
+    hideBanner();
+  });
+
+  function hideBanner() {
+    if (cookieBanner) {
+      cookieBanner.classList.add('translate-y-full');
+      setTimeout(() => {
+        cookieBanner.remove();
+      }, 300);
+    }
+  }
+</script>
